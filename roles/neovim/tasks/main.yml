@@ -1,0 +1,29 @@
+- name: install neovim repository
+  apt_repository : repo=ppa:neovim-ppa/stable
+  become: yes
+
+- name: install neovim using apt"
+  apt:
+    name: neovim
+  become: yes
+
+- name: check dotfiles exists
+  stat: 
+    path: ~/dotfiles
+  register: dotfiles
+ 
+- debug:
+    var: dotfiles
+
+- name: create .config/nvim directory if not exists
+  file:
+    path: ~/.config/nvim
+    state: directory
+
+- name: make symbolic link from dotfiles(init.nvim)
+  file:
+    src: ~/dotfiles/vim/vimrc
+    dest: ~/.config/nvim/init.vim
+    state: link
+  when: dotfiles.stat.exists
+
