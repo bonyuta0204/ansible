@@ -1,0 +1,29 @@
+- hosts: all
+  connection: local
+  become: yes
+  become_user: root
+  tasks:
+  - name: install neovim repositories
+    apt_repository : repo=ppa:neovim-ppa/stable
+
+  - name: install fish repositories
+    apt_repository : repo=ppa:fish-shell/release-3
+
+  - name: install basic packages
+    apt: name={{ item }} state=present update_cache=no
+    with_items:
+    - git
+    - fish
+    - vim
+    - neovim
+
+  - name: introduce dotfiles from my module
+    git: repo=https://github.com/bonyuta0204/dotfiles.git dest=/home/vagrant/dotfiles
+
+  - name: link dotfiles to home directory
+    shell: /home/vagrant/dotfiles/dotfilesLink.sh
+    become: vagrant
+    register: link_result
+
+  - debug: 
+      var: link_result.stderr_lines
