@@ -1,0 +1,13 @@
+- name: introduce dotfiles from my module
+  git: repo=https://github.com/bonyuta0204/dotfiles.git dest=/home/vagrant/dotfiles
+
+- name: link dotfiles
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  with_items:
+  - { src: ~/dotfiles/vim/vimrc, dest: ~/.vimrc }
+  - { src: ~/dotfiles/bashrc, dest: ~/.bashrc }
+  - { src: ~/dotfiles/bash_profile, dest: ~/.bash_profile }
+  - { src: ~/dotfiles/tmux.conf, dest: ~/.tmux.conf }

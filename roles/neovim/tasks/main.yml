@@ -12,9 +12,6 @@
     path: ~/dotfiles
   register: dotfiles
  
-- debug:
-    var: dotfiles
-
 - name: create .config/nvim directory if not exists
   file:
     path: ~/.config/nvim
