@@ -46,6 +46,7 @@
     name: docker
     state: started
     enabled: yes
+  failed_when: False
   become: yes
 
 - name: Install docker-compose
