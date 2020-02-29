@@ -6,21 +6,3 @@
   apt:
     name: neovim
   become: yes
-
-- name: check dotfiles exists
-  stat: 
-    path: ~/dotfiles
-  register: dotfiles
- 
-- name: create .config/nvim directory if not exists
-  file:
-    path: ~/.config/nvim
-    state: directory
-
-- name: make symbolic link from dotfiles(init.nvim)
-  file:
-    src: ~/dotfiles/vim/vimrc
-    dest: ~/.config/nvim/init.vim
-    state: link
-  when: dotfiles.stat.exists
-

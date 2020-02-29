@@ -1,7 +1,6 @@
 - hosts: all
   roles:
   - apt-packages
-  - dotfiles
   - neovim
   - docker
  
