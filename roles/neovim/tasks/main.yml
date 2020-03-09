@@ -4,5 +4,13 @@
 
 - name: install neovim using apt"
   apt:
-    name: neovim
+    name: 
+      - neovim
+      - python-pip
+      - python3-pip
   become: yes
+- name: install neovim pip package
+  pip:
+    name: neovim
+    executable: pip3
+

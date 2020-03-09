@@ -6,3 +6,10 @@
   git:
     repo: https://github.com/sstephenson/ruby-build.git
     dest: ~/.rbenv/plugins/ruby-build
+- name: install apt package to build ruby
+  apt:
+    name: 
+      - libssl-dev
+      - libreadline-dev
+      - zlib1g-dev
+  become: yes
