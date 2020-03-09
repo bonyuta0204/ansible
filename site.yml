@@ -1,6 +1,11 @@
 - hosts: all
   roles:
-  - apt-packages
-  - neovim
-  - docker
+    - role: apt-packages
+      tags: apt-packages
+    - role: neovim
+      tags: neovim
+    - role: docker
+      tags: docker
+    - role: rbenv
+      tags: rbenv
  
