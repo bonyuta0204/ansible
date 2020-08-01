@@ -4,6 +4,14 @@ apt_packages:
 - tmux
 - tig
 - ruby
+- ruby-dev
+- mysql-client-5.7
+- mysql-client-core-5.7
+- mysql-common
+- openjdk-8-jre
+- silversearcher-ag
+- awscli
+- ntp
 apt_repositories:
 - ppa:fish-shell/release-3
 - ppa:git-core/ppa

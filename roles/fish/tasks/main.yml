@@ -1,0 +1,9 @@
+- name: install fish repository
+  apt_repository : repo=ppa:fish-shell/release-3
+  become: yes
+
+- name: install fish using apt"
+  apt:
+    name:
+      - fish
+  become: yes

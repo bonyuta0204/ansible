@@ -8,4 +8,7 @@
       tags: docker
     - role: rbenv
       tags: rbenv
- 
+    - role: nodenv
+      tags: nodenv
+    - role: fish
+      tags: fish
