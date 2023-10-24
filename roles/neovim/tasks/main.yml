@@ -6,7 +6,6 @@
   apt:
     name: 
       - neovim
-      - python-pip
       - python3-pip
   become: yes
 - name: install neovim pip package
